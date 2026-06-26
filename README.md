@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/banner.png" alt="LinkedIn AI Commentor Chrome Extension Banner" width="100%">
+  <img src="/assets/banner.png" alt="LinkedIn AI Commentor Chrome Extension Banner" width="100%">
 </p>
 
 <h1 align="center">LinkedIn AI Commentor Extension for Chrome</h1>
