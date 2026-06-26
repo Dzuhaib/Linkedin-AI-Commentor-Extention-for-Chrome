@@ -1,0 +1,448 @@
+/* ═══════════════════════════════════════════════════════════
+   CommentAI — Content Script Styles
+   All classes are prefixed with "cai-" to avoid conflicts
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─── Button Group ──────────────────────────────────────── */
+
+.cai-btn-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 6px 4px 4px;
+}
+
+/* ─── AI Button (base) ──────────────────────────────────── */
+
+.cai-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  margin: 0;
+  border: 1.5px solid rgba(99, 102, 241, 0.55);
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(139, 92, 246, 0.12));
+  color: #6366f1;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 9;
+}
+
+.cai-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  opacity: 0;
+  transition: opacity 0.22s ease;
+  border-radius: inherit;
+}
+
+.cai-btn:hover {
+  border-color: #6366f1;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+}
+
+.cai-btn:hover::before { opacity: 1; }
+
+.cai-btn:hover .cai-btn-sparkle,
+.cai-btn:hover .cai-btn-label {
+  position: relative;
+  z-index: 1;
+}
+
+.cai-btn:active { transform: translateY(0); }
+
+.cai-btn-sparkle {
+  font-size: 11px;
+  animation: cai-sparkle-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes cai-sparkle-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.7; transform: scale(1.15); }
+}
+
+.cai-btn--loading { opacity: 0.8; cursor: not-allowed; pointer-events: none; }
+
+/* ─── Spinner ───────────────────────────────────────────── */
+
+.cai-spinner {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border: 2px solid rgba(99, 102, 241, 0.3);
+  border-top-color: #6366f1;
+  border-radius: 50%;
+  animation: cai-spin 0.75s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes cai-spin { to { transform: rotate(360deg); } }
+
+/* ─── Modal Overlay ─────────────────────────────────────── */
+
+.cai-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cai-overlay--in { opacity: 1; }
+
+/* ─── Modal Box ─────────────────────────────────────────── */
+
+.cai-modal {
+  background: #0f0f13;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 88vh;
+  overflow-y: auto;
+  box-shadow:
+    0 0 0 1px rgba(99, 102, 241, 0.15),
+    0 25px 60px rgba(0, 0, 0, 0.6),
+    0 0 80px rgba(99, 102, 241, 0.08);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  transform: translateY(20px) scale(0.97);
+  opacity: 0;
+  transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.32s ease;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(99, 102, 241, 0.3) transparent;
+}
+
+.cai-modal--in {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.cai-modal::-webkit-scrollbar       { width: 4px; }
+.cai-modal::-webkit-scrollbar-track { background: transparent; }
+.cai-modal::-webkit-scrollbar-thumb { background: rgba(99, 102, 241, 0.3); border-radius: 99px; }
+
+/* ─── Modal Header ──────────────────────────────────────── */
+
+.cai-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.cai-modal-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.3px;
+}
+
+.cai-logo-spark {
+  font-size: 18px;
+  background: linear-gradient(135deg, #6366f1, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.6));
+  animation: cai-sparkle-pulse 2.5s ease-in-out infinite;
+}
+
+.cai-close-btn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.cai-close-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ─── Tone Pills ────────────────────────────────────────── */
+
+.cai-tone-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 20px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cai-tone-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-right: 2px;
+  flex-shrink: 0;
+}
+
+.cai-tone-pill {
+  padding: 4px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 11.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  font-family: inherit;
+}
+
+.cai-tone-pill:hover {
+  border-color: rgba(99, 102, 241, 0.5);
+  color: #a78bfa;
+  background: rgba(99, 102, 241, 0.08);
+}
+
+.cai-tone-pill--active {
+  border-color: #6366f1;
+  background: rgba(99, 102, 241, 0.15);
+  color: #a78bfa;
+  font-weight: 600;
+}
+
+/* ─── Comment Cards ─────────────────────────────────────── */
+
+.cai-cards-list {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  transition: opacity 0.2s ease;
+}
+
+.cai-cards-list--loading { opacity: 0.4; pointer-events: none; }
+
+.cai-card {
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+  transition: all 0.22s ease;
+  position: relative;
+}
+
+.cai-card:hover {
+  border-color: rgba(99, 102, 241, 0.35);
+  background: rgba(99, 102, 241, 0.06);
+  transform: translateY(-1px);
+}
+
+.cai-card--selected {
+  border-color: #6366f1;
+  background: rgba(99, 102, 241, 0.10);
+  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.3), 0 4px 16px rgba(99, 102, 241, 0.12);
+}
+
+.cai-card-num {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.15);
+  color: #a78bfa;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cai-card-text {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0 0 10px;
+  padding-right: 26px;
+}
+
+.cai-use-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  font-family: inherit;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cai-card:hover .cai-use-btn,
+.cai-card--selected .cai-use-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cai-use-btn:hover {
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.45);
+  transform: translateY(-1px) !important;
+}
+
+/* ─── Modal Footer ──────────────────────────────────────── */
+
+.cai-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.cai-regen-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  border-radius: 8px;
+  background: transparent;
+  color: #a78bfa;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.cai-regen-btn:hover {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: #6366f1;
+}
+
+.cai-regen-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.cai-footer-note {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+/* ─── Toast Notification ────────────────────────────────── */
+
+.cai-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 9999999;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+  max-width: 400px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.cai-toast--show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.cai-toast--success {
+  background: linear-gradient(135deg, #059669, #065f46);
+  color: #d1fae5;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  box-shadow: 0 8px 24px rgba(5, 150, 105, 0.3);
+}
+
+.cai-toast--error {
+  background: linear-gradient(135deg, #dc2626, #991b1b);
+  color: #fee2e2;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.3);
+}
+
+.cai-toast--info {
+  background: linear-gradient(135deg, #1e40af, #1e3a8a);
+  color: #dbeafe;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+}
+
+/* ─── Quick Button (amber/orange variant) ───────────────── */
+
+.cai-btn--quick {
+  border-color: rgba(245, 158, 11, 0.55);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(234, 88, 12, 0.12));
+  color: #f59e0b;
+}
+
+.cai-btn--quick::before {
+  background: linear-gradient(135deg, #f59e0b, #ea580c);
+}
+
+.cai-btn--quick:hover {
+  border-color: #f59e0b;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);
+}
+
+.cai-btn--quick .cai-btn-sparkle {
+  animation: cai-quick-flash 1.4s ease-in-out infinite;
+}
+
+@keyframes cai-quick-flash {
+  0%, 100% { opacity: 1; transform: scale(1);    }
+  40%       { opacity: 0.5; transform: scale(0.9); }
+  60%       { opacity: 1;   transform: scale(1.2); }
+}
+
+/* Override spinner colour for Quick button */
+.cai-btn--quick .cai-spinner {
+  border-color: rgba(245, 158, 11, 0.3);
+  border-top-color: #f59e0b;
+}

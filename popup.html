@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CommentAI Settings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="popup">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-brand">
+        <span class="header-spark">✦</span>
+        <span class="header-title">CommentAI</span>
+        <span class="header-badge">FREE</span>
+      </div>
+      <p class="header-sub">Smart LinkedIn Comments, Powered by You</p>
+    </header>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span class="stat-value" id="statsToday">—</span>
+        <span class="stat-label">Today</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-value" id="statsTotal">—</span>
+        <span class="stat-label">Total</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-value stat-value--green" id="statsStatus">—</span>
+        <span class="stat-label">Status</span>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div class="form-body">
+
+      <!-- API Key -->
+      <div class="field">
+        <label class="field-label" for="apiKey">
+          OpenAI API Key
+          <a href="https://platform.openai.com/api-keys" target="_blank" class="field-link">Get key →</a>
+        </label>
+        <div class="input-wrap">
+          <input
+            type="password"
+            id="apiKey"
+            class="input"
+            placeholder="sk-proj-..."
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button class="input-eye" id="toggleKey" title="Show/hide key" type="button">👁</button>
+        </div>
+        <p class="field-hint">Stored locally in your browser. Never sent anywhere except OpenAI.</p>
+      </div>
+
+      <!-- Model -->
+      <div class="field">
+        <label class="field-label" for="model">AI Model</label>
+        <select id="model" class="select">
+          <option value="gpt-4o-mini">GPT-4o Mini — Fast & affordable ⚡</option>
+          <option value="gpt-4o">GPT-4o — Best quality 🏆</option>
+          <option value="gpt-4-turbo">GPT-4 Turbo — Balanced 🎯</option>
+          <option value="gpt-3.5-turbo">GPT-3.5 Turbo — Very cheap 💰</option>
+        </select>
+      </div>
+
+      <!-- Default Tone -->
+      <div class="field">
+        <label class="field-label">Default Tone</label>
+        <div class="tone-grid" id="toneGrid">
+          <button class="tone-btn" data-tone="professional" title="Formal, insightful, industry-expert">💼 Professional</button>
+          <button class="tone-btn" data-tone="enthusiastic" title="Energetic and encouraging">🔥 Enthusiastic</button>
+          <button class="tone-btn" data-tone="thoughtful"   title="Reflective and analytical">🧠 Thoughtful</button>
+          <button class="tone-btn" data-tone="curious"      title="Ask a follow-up question">🤔 Curious</button>
+          <button class="tone-btn" data-tone="supportive"   title="Warm and empathetic">🤝 Supportive</button>
+          <button class="tone-btn" data-tone="concise"      title="Short and punchy">⚡ Concise</button>
+        </div>
+      </div>
+
+      <!-- Comment Length -->
+      <div class="field">
+        <label class="field-label">Comment Length</label>
+        <div class="length-row" id="lengthRow">
+          <button class="length-btn" data-length="short">Short<span>1 sentence</span></button>
+          <button class="length-btn" data-length="medium">Medium<span>2–3 sentences</span></button>
+          <button class="length-btn" data-length="long">Long<span>3–5 sentences</span></button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Actions -->
+    <div class="actions">
+      <button class="btn-save" id="saveBtn">Save Settings</button>
+      <div class="save-status" id="saveStatus"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="popup-footer">
+      <span>v1.0.0 · No subscription · No data collection</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
