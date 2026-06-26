@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/banner.png" alt="LinkedIn AI Commentor Chrome Extension Banner" width="100%">
+  <img src="./assets/banner" alt="LinkedIn AI Commentor Chrome Extension Banner" width="100%">
 </p>
 
 <h1 align="center">LinkedIn AI Commentor Extension for Chrome</h1>
@@ -14,7 +14,7 @@
 
 **LinkedIn AI Commentor** is a Chrome Extension that uses AI to generate professional, engaging, and context-aware comments for LinkedIn posts.
 
-Whether you're a marketer, recruiter, entrepreneur, founder, salesperson, or content creator, this extension helps you stay active on LinkedIn, increase engagement, grow your personal brand, and save time.
+Whether you're a marketer, recruiter, entrepreneur, founder, salesperson, or content creator, this extension helps you stay active on LinkedIn, increase engagement, grow your personal brand, and start meaningful conversations.
 
 ---
 
