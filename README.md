@@ -1,27 +1,37 @@
 ````markdown
 <p align="center">
-  <img src="assets/banner.png" alt="LinkedIn AI Commentor Chrome Extension Banner" width="100%">
+  <img src="./assets/banner.png" alt="LinkedIn AI Commentor Chrome Extension Banner" width="100%">
 </p>
 
-# LinkedIn AI Commentor Extension for Chrome
+<h1 align="center">LinkedIn AI Commentor Extension for Chrome</h1>
 
-**LinkedIn AI Commentor** is a powerful Chrome extension that uses advanced AI to generate professional, engaging, and personalized comments on LinkedIn posts in seconds.
+<p align="center">
+Generate professional AI-powered LinkedIn comments in one click.
+</p>
 
-Whether you're a marketer, recruiter, entrepreneur, sales professional, founder, job seeker, or content creator, this extension helps you increase engagement, build your personal brand, and save valuable time.
+---
 
-Instead of spending minutes thinking of the perfect response, simply click the extension and receive high-quality AI-generated LinkedIn comments that sound natural, relevant, and human.
+## 🚀 About
 
-## 🚀 Features
+**LinkedIn AI Commentor** is a Chrome Extension that leverages AI to generate engaging, professional, and context-aware comments for LinkedIn posts. It helps professionals stay active on LinkedIn, increase engagement, and build their personal brand without spending hours writing comments manually.
 
-- 🤖 AI-powered LinkedIn comment generation
-- 💬 Generate professional, thoughtful, and engaging comments instantly
-- ⚡ One-click Chrome Extension integration
-- 🎯 Increase LinkedIn engagement and visibility
-- 👨‍💼 Perfect for professionals, recruiters, founders, marketers, and sales teams
-- ✨ Human-like comments optimized for networking and audience engagement
-- 🔒 Fast, lightweight, and privacy-focused
+Whether you're a marketer, recruiter, entrepreneur, founder, salesperson, or content creator, LinkedIn AI Commentor makes networking faster and more effective.
 
-## 💼 Perfect For
+---
+
+## ✨ Features
+
+- 🤖 AI-generated LinkedIn comments
+- 💬 Human-like, professional responses
+- ⚡ One-click Chrome Extension
+- 🎯 Increase engagement and visibility
+- 🚀 Boost your personal brand
+- 💼 Ideal for professionals, founders, recruiters, and marketers
+- 🔒 Lightweight, fast, and privacy-friendly
+
+---
+
+## 🎯 Perfect For
 
 - LinkedIn Marketing
 - Personal Branding
@@ -29,47 +39,57 @@ Instead of spending minutes thinking of the perfect response, simply click the e
 - Lead Generation
 - B2B Marketing
 - Recruiters & HR Professionals
-- Business Owners
 - Entrepreneurs
+- Business Owners
 - Sales Professionals
 - Content Creators
 - Digital Marketing Agencies
 
+---
+
 ## 🔥 Why Use LinkedIn AI Commentor?
 
-Consistently commenting on LinkedIn is one of the fastest ways to grow your network, increase profile views, build authority, and generate inbound leads.
+Consistent engagement is one of the best ways to grow on LinkedIn.
 
-LinkedIn AI Commentor eliminates writer's block by creating meaningful, context-aware comments that help you stay active without spending hours each day.
+LinkedIn AI Commentor helps you overcome writer's block by generating meaningful, relevant comments that increase visibility, encourage conversations, and help you build stronger professional relationships.
+
+---
 
 ## 📦 Installation
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/linkedin-ai-commentor.git
-   ```
+1. Download or clone this repository.
+
+```bash
+git clone https://github.com/your-username/linkedin-ai-commentor.git
+```
 
 2. Open **Google Chrome** and navigate to:
-   ```
-   chrome://extensions/
-   ```
+
+```
+chrome://extensions/
+```
 
 3. Enable **Developer Mode**.
 
 4. Click **Load unpacked**.
 
-5. Select the project folder.
+5. Select the downloaded project folder (the folder containing `manifest.json`).
 
-6. Open LinkedIn and start generating AI-powered comments instantly.
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to fork this repository, submit issues, or open pull requests to improve the project.
-
-## 📄 License
-
-This project is licensed under the MIT License.
+6. The extension will be installed and ready to use on LinkedIn.
 
 ---
 
-⭐ If you find this project useful, don't forget to **Star** the repository and share it with others!
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to fork this repository, open an issue, or submit a pull request.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+⭐ If you find this project useful, please consider giving it a **Star** on GitHub. It helps support the project and future development.
 ````
